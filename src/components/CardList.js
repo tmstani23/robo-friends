@@ -3,9 +3,6 @@ import React from 'react';
 
 
 const CardList = ({robots}) => {
-    if(true) {
-        throw new Error('ERRORRRR!!');
-    }
 
     return !robots.length > 0 
         ? <h1 className = 'tc'> Loading...</h1>
