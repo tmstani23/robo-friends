@@ -1,6 +1,9 @@
 @font-face {
     font-family: segaFont;
     src: url(./fonts/SEGA.TTF);
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
   }
 
 body {
@@ -11,3 +14,4 @@ h1 {
     font-weight: 200;
     color: #0ccac4;
 }
+

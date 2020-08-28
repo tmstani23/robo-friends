@@ -2,7 +2,9 @@ import React from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
-import ErrorBoundry from '../components/ErrorBoundry';
+import ErrorBoundary from '../components/ErrorBoundry';
+import Header from '../components/Header';
+
 // action imports
 import {setSearchFieldAction, requestRobotsAction} from '../actions';
 //Redux imports
@@ -43,20 +45,21 @@ class App extends React.Component {
         })
             
 
-        return !isPending ? (
+        return (
             <div className='tc'>
-                <h1 className='f1'>RoboFriends</h1>
-                <SearchBox searchChange={onSearchChange}/>
+                <Header />
+                
                 <Scroll>
-                    <ErrorBoundry>
-                        <CardList robots={filteredRobots}/>
-                    </ErrorBoundry>
+                    { isPending ? <h1>Loading...</h1>
+                        : <ErrorBoundary>
+                            <SearchBox searchChange={onSearchChange}/>
+                            <CardList robots={filteredRobots}/> 
+                        </ErrorBoundary>
+                    }
                 </Scroll>
                 
-            </div>)
-            : null
-            
-        
+            </div>
+        )  
     }
     
 }
