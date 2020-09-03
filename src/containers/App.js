@@ -1,15 +1,10 @@
 import React from 'react';
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import ErrorBoundary from '../components/ErrorBoundry';
-import Header from '../components/Header';
+import MainPage from '../components/MainPage'
 
 // action imports
 import {setSearchFieldAction, requestRobotsAction} from '../actions';
-//Redux imports
+// //Redux imports
 import {connect} from 'react-redux';
-//import { requestRobotsReducer } from '../reducers';
 
 const mapStateToProps = state => {
     //listen for state changes and send it down as props
@@ -30,36 +25,10 @@ const mapDispatchToProps = (dispatch) => {
 
 class App extends React.Component {
 
-    componentDidMount() {
-        this.props.onRequestRobots()
-    }
-
     render() {
-        
-        //searchField and searchChange now coming from redux store as props
-        const {searchField, onSearchChange, robots, isPending} = this.props;
-        
-        //Filter the robots to only include those in the searchfield
-        let filteredRobots = robots.filter(robot => {   
-            return robot.name.toLowerCase().includes(searchField.toLowerCase())
-        })
-            
-
         return (
-            <div className='tc'>
-                <Header />
-                
-                <Scroll>
-                    { isPending ? <h1>Loading...</h1>
-                        : <ErrorBoundary>
-                            <SearchBox searchChange={onSearchChange}/>
-                            <CardList robots={filteredRobots}/> 
-                        </ErrorBoundary>
-                    }
-                </Scroll>
-                
-            </div>
-        )  
+            <MainPage {...this.props} />
+        )
     }
     
 }
