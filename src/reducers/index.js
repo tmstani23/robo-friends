@@ -11,7 +11,6 @@ const initialStateSearch = {
 const initialStateRobots = {
     isPending: false,
     robots: [],
-    error: ''
 }
 
 export const searchRobotsReducer = (state=initialStateSearch, action={}) => {
@@ -42,7 +41,8 @@ export const requestRobotsReducer = (state=initialStateRobots, action={}) => {
         case REQUEST_ROBOTS_FAILED:
         return {
             ...state,
-            isPending: false
+            isPending: false,
+            error: action.payload
         }
         default:
             return state

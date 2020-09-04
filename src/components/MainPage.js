@@ -4,7 +4,6 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundry';
 import Header from '../components/Header';
-//import '../styles/fonts/App.css';
 
 
 
@@ -24,10 +23,7 @@ class MainPage extends React.Component {
     render() {
         
         //searchField and searchChange now coming from redux store as props
-        const {onSearchChange, isPending} = this.props;
-        
-        
-            
+        const {onSearchChange, isPending} = this.props;  
 
         return (
             <div className='tc'>
@@ -37,7 +33,7 @@ class MainPage extends React.Component {
                     { isPending ? <h1>Loading...</h1>
                         : <ErrorBoundary>
                             <SearchBox searchChange={onSearchChange}/>
-                            <CardList robots={this.filterRobots()}/> 
+                            <CardList error={this.props.error} robots={this.filterRobots()}/> 
                         </ErrorBoundary>
                     }
                 </Scroll>

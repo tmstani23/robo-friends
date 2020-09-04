@@ -24,10 +24,8 @@ it('test alternative return condition', () => {
     const tree = renderer.create(
         <CardList robots={mockRobots} />
       ).toJSON();
-
-    //console.log(JSON.stringify(tree))
     
-    expect(tree.children[0]).toEqual(" Loading...")
+    expect(tree.children[0].children[0]).toBe(" Loading...")
     
     
 });

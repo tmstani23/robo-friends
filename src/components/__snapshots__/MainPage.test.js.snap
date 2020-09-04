@@ -37,11 +37,13 @@ exports[`expect app component to render pending false 1`] = `
         type="search"
       />
     </div>
-    <h1
-      className="tc"
-    >
-       Loading...
-    </h1>
+    <div>
+      <h1
+        className="tc"
+      >
+         Loading...
+      </h1>
+    </div>
   </div>
 </div>
 `;

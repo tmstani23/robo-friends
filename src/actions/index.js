@@ -15,14 +15,16 @@ export const requestRobotsAction = () => (dispatch) => {
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
         .then(data => {
+            data.length > 0 ?
             dispatch({
                 type: REQUEST_ROBOTS_SUCCESS,
                 payload: data
             })
+            : dispatch({
+                type: REQUEST_ROBOTS_FAILED,
+                payload: [{error: 'Robots request failed'}]
+            })
         })
-        .catch(error => dispatch({
-            type: REQUEST_ROBOTS_FAILED,
-            payload: error
-        }))
+        .catch(error => console.log(error))
         
 }
