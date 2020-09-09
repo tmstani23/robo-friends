@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect app component to render pending false 1`] = `
+<div
+  className="tc"
+>
+  <div>
+    <button
+      color="red"
+      onClick={[Function]}
+    >
+      Count: 
+      0
+    </button>
+    <h1
+      className="f1"
+    >
+      RoboFriends
+    </h1>
+  </div>
+  <div
+    style={
+      Object {
+        "border": "1px solid #0ccac4",
+        "height": "500px",
+        "overflow": "scroll",
+      }
+    }
+  >
+    <div
+      className="pa2"
+    >
+      <input
+        aria-label="Search Robots"
+        className="pa3 ba b--green bg-lightest-blue"
+        placeholder="search robots"
+        type="search"
+      />
+    </div>
+    <div>
+      <h1
+        className="tc"
+      >
+         Loading...
+      </h1>
+    </div>
+  </div>
+</div>
+`;
