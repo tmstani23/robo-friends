@@ -1,8 +1,14 @@
 version: 2.1
 jobs:
   build:
-    machine:
-      image: 'ubuntu-2004:202010-01'
+    docker:
+      - image: alpine:3.7
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-      - checkout
-      - run: echo "Hello world!"
+      - run:
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+            echo 'This is the delivery pipeline'
