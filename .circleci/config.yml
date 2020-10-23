@@ -1,14 +1,34 @@
 version: 2.1
 jobs:
-  build:
-    docker:
-      - image: alpine:3.7
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    steps:
-      - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+    buildHello:
+        docker:
+            - image: alpine:3.7
+            auth:
+                username: mydockerhub-user
+                password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+        steps:
+            - run:
+                name: The First Build
+                command: |
+                    echo 'Hello World!'
+                    echo 'This is the delivery pipeline'
+    buildDouble:
+        docker:
+            - image: alpine:3.7
+            auth:
+            username: mydockerhub-user
+            password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+        steps:
+            - run:
+                name: The Second Build
+                command: |
+                    echo 'Double Trouble!'
+    workflows:
+        version: 2.1
+        # name of workflow
+        buildHello_buildDouble:
+            # which builds to run
+            jobs:
+                - buildHello
+                - buildDouble
+                
