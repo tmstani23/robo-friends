@@ -26,13 +26,19 @@
     "redux-thunk": "^2.3.0",
     "tachyons": "^4.12.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pre-commit": "pretty-quick --staged"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +58,9 @@
   "devDependencies": {
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
+    "husky": "^4.3.0",
+    "prettier": "2.1.2",
+    "pretty-quick": "^3.1.0",
     "redux-mock-store": "^1.5.4"
   }
 }
